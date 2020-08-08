@@ -20,9 +20,9 @@ export default () => {
 
   return (
     <div>
-      <select onChange={e => setToken(e.target.value)}>
+      <select defaultValue={token} onChange={e => setToken(e.target.value)}>
         {
-          Object.keys(TOKENS).map(address => <option key={address} value={address} selected={address === token}>{address}</option>)
+          Object.keys(TOKENS).map(address => <option key={address} value={address}>{address}</option>)
         }
       </select>
   
