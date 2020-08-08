@@ -1,6 +1,10 @@
-export const ADDRESSES = {
+export const TOKENS = {
   BAT: '0x0d8775f648430679a709e98d2b0cb6250d2887ef',
   DAI: '0x6b175474e89094c44da98b954eedeac495271d0f',
   USDC: '0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48',
   MTA: '0xa3BeD4E1c75D00fa6f4E5E6922DB7261B5E9AcD2'
+};
+
+export const PAIRS = {
+  NEXO: "0x2615b89ad032ccda6d67e1d511f0e4c9e3a5dc13"
 };
