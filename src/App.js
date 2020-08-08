@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import {useQuery} from '@apollo/react-hooks';
-import {DAI_QUERY, ETH_PRICE_QUERY} from './queries';
-import {ADDRESSES} from './tokens';
+import Query from './Query';
+import * as queries from './queries';
+import {TOKENS, PAIRS} from './tokens';
 import './App.css';
 
 export default () => {
   const [token, setToken] = useState('DAI');
-
-  const { loading: ethLoading, error: ethError, data: ethPriceData } = useQuery(ETH_PRICE_QUERY)
-  const { loading: tokenLoading, error: tokenError, data: tokenData } = useQuery(DAI_QUERY, {
+  const { loading: ethLoading, error: ethError, data: ethPriceData } = useQuery(queries.ETH_PRICE_QUERY);
+  const { loading: tokenLoading, error: tokenError, data: tokenData } = useQuery(queries.TOKEN_QUERY, {
     variables: {
-      tokenAddress: ADDRESSES[token]
+      tokenAddress: TOKENS[token]
     }
   });
 
@@ -22,7 +22,7 @@ export default () => {
     <div>
       <select onChange={e => setToken(e.target.value)}>
         {
-          Object.keys(ADDRESSES).map(address => <option value={address} selected={address === token}>{address}</option>)
+          Object.keys(TOKENS).map(address => <option key={address} value={address} selected={address === token}>{address}</option>)
         }
       </select>
   
@@ -49,6 +49,9 @@ export default () => {
               : // display the total amount of DAI spread across all pools
                 parseFloat(tokenTotalLiquidity).toFixed(0)
             }
+          </div>
+          <div>
+            <Query query={queries.PAIR_QUERY} variables={{pairId: PAIRS.NEXO}} />
           </div>
         </>
       }
