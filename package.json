@@ -10,7 +10,9 @@
     "graphql": "^15.3.0",
     "graphql-tag": "^2.11.0",
     "react": "^16.13.1",
+    "react-base16-styling": "^0.6.0",
     "react-dom": "^16.13.1",
+    "react-json-tree": "^0.12.0",
     "react-scripts": "3.4.1"
   },
   "scripts": {
