@@ -52,6 +52,7 @@ export default () => {
           </div>
           <div>
             <Query query={queries.PAIR_QUERY} variables={{pairId: PAIRS.NEXO}} />
+            <Query query={queries.ALL_PAIRS} variables={{skip: 0}} />
           </div>
         </>
       }
