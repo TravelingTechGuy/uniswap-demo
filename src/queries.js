@@ -1,5 +1,8 @@
 import gql from 'graphql-tag';
 
+/**
+ * Query explorer: https://thegraph.com/explorer/subgraph/uniswap/uniswap-v2?selected=playground
+ */
 const FACTORY_ADDRESS = '0x5C69bEe701ef814a2B6a3EDD4B1652CB9cc5aA6f';
 const BUNDLE_ID = '1';
 

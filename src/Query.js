@@ -1,10 +1,9 @@
 import React from 'react';
-import JSONTree from 'react-json-tree';
-import {getBase16Theme} from 'react-base16-styling'
+import JSONView from 'react-json-view';
 import {useQuery} from '@apollo/react-hooks';
 
-export default ({query, variables}) => {
-  const { loading, error, data: result } = useQuery(query, variables? {variables} : {});
+export default ({query, variables, theme = 'solarized'}) => {
+  const { loading, error, data } = useQuery(query, variables? {variables} : {});
   return (
     <div>
     {
@@ -17,7 +16,7 @@ export default ({query, variables}) => {
           <div>Loading...</div>
         :
           <div>
-            <JSONTree data={result} theme={getBase16Theme('solarized')} />
+            <JSONView src={data} theme={theme} />
           </div>
     }
     </div>
